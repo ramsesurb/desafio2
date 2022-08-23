@@ -1,9 +1,9 @@
-export const ItemList = () => {
+export const ItemListContainer = ({titulo}) => {
 
     return (
         <div>
            <h1>
-            contenido de la lista de la tienda
+            {titulo}
            </h1>
 
         </div>

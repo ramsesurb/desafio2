@@ -1,7 +1,7 @@
 import { Header } from './components/Header/Header'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ItemList } from './components/ItemListContainer/ItemListContainer'
+import { ItemListContainer } from './components/ItemListContainer/ItemListContainer'
 
 
 
@@ -10,7 +10,7 @@ function App() {
     <div >
       <Header/>
       
-      <ItemList/>
+      <ItemListContainer titulo={"Bienvenidos a mi tienda!"} />
       
       
     
