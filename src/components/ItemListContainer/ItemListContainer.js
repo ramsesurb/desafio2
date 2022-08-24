@@ -1,3 +1,5 @@
+import ItemCounter from "../CounterButton/CounterButton"
+
 export const ItemListContainer = ({titulo}) => {
 
     return (
@@ -5,6 +7,7 @@ export const ItemListContainer = ({titulo}) => {
            <h1>
             {titulo}
            </h1>
+           <ItemCounter/>
 
         </div>
     )

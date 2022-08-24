@@ -9,7 +9,6 @@ export const Cart = () => {
               height="30"
               className="d-inline-block align-top"
             />
-
         </div>
     )
 }
