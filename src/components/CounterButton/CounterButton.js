@@ -18,16 +18,11 @@ const ItemCounter =() => {
     }
     return (
     
-    <Card bg="dark" text="light" border= "success"  style={{ width: '18rem' }}>
+    <Card bg="light" text="dark" border= "success"  style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title>Contador de items</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-        <Card.Text>
-          sumar o restar algun item del carrito
-        </Card.Text>
-        <button onClick={handleMinus} className="btn btn-outline-light">-</button>
+        <button onClick={handleMinus} className="btn btn-outline-dark">-</button>
         <span className="mx-2">{counter}</span>
-        <button onClick={handlePlus} className="btn btn-light">+</button>
+        <button onClick={handlePlus} className="btn btn-dark">+</button>
       </Card.Body>
     </Card>
   )
