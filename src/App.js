@@ -22,9 +22,8 @@ function App() {
       <Header/>
       
        <Routes>
-      q<Route path='/item/:itemId' element={<ItemDetailContainer />}/>
-       </Routes>
-      <ItemDetailContainer />
+       <Route path='/item/:itemId' element={<ItemDetailContainer />}/>
+      </Routes>
       <ItemListContainer/>
 
       </BrowserRouter>
