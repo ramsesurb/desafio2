@@ -1,0 +1,17 @@
+.header-navbar {
+    min-width: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;}
+
+    .header-navlink {
+        font-size: 18px;
+        font-weight: 700;
+        color: whitesmoke;
+        text-decoration: none;
+        padding-left: 1rem;
+    }
+
+    a:hover {
+        color: gold;
+      }

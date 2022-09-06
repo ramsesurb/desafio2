@@ -1,40 +1,66 @@
 import { useEffect, useState } from "react";
-import ItemCounter from "../CounterButton/CounterButton";
-import {stock} from "../Data/Data2"
-import Itemdetail from "../ItemDetail/ItemDetail";
+import { pedirDatos } from "../helpers/PedirDatos";
+import ItemCounter from '../CounterButton/CounterButton';
+import { useParams } from 'react-router-dom';
 
 
-const pedirDatos = () => {
-    return new Promise( (resolve, reject) => {
-            setTimeout(() => {
-                resolve(stock)
-            }, 3000)
-        } )
-    }
+
+
+
 const ItemDetailContainer = ()=> {
-    
+
     const [item, setItem] = useState([])
+    const {itemId} = useParams()
     console.log(item)
-    
+
     useEffect(() => {
-        pedirDatos()
-            .then( (res) => {
-                setItem(res)
-            })
-            .catch( (error) => {
-                console.log(error)
-            })
-            .finally(() => {
-                // console.log("Fin del proceso")
-            })
-    }, [])
-        
+      pedirDatos()
+          .then( (res) => {
+              setItem( res.find((prod) => prod.id === Number(itemId)) )
+          })
+          .catch( (error) => {
+              console.log(error)
+          })
+          .finally(() => {
+              
+          })
+  }, [itemId])
+
             return (
-            <Itemdetail item={item} key={item.id}/>
+            <div className="container my-5 grid">
+                
+                      <div>
+                      <h1> Producto Detallado</h1>
+                      <hr/>
+                      <div className="container  p-3">
+                          <div className="row">
+                          <div className="col-sm-8">
+                            <div className="text-center">
+                           <img src={item.images} style={{ width: '18rem' }} alt="" /> 
+                           </div>
+                           <hr/>
+                           <h2>Description</h2>
+                           <p> {item.desc} </p> 
+                           <h2>Specs</h2>
+                           <p>Neckwood: {item.neckWood}</p>
+                           <p>Fret number: {item.fretNumber}</p>
+                           <p>Color : {item.color}</p>
+                           <p>Country origin: {item.countryOrigin}</p>
+                          </div>
+                          <div className="col-sm-4 bg-dark text-light">
+                            <h2> {item.name}</h2>
+                            <h3>Price {item.price}</h3>
+                            <ItemCounter/>
+                            </div>
+                          </div>
+
+                      </div>
+                  </div>
+
+                
+
+            </div>
         )
-        
+
         }
         export default ItemDetailContainer
-        
-
-        

@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import { Cart } from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
 
 
@@ -13,7 +14,6 @@ export const Header = () => {
 
     return (
         <header className="bg-header">
-         
          <>
          <Navbar bg="dark" variant="dark">
         <Container>
@@ -27,17 +27,17 @@ export const Header = () => {
               className="d-inline-block align-top"
             />{' '}
             Ram Music Store
-          
-          
+
           </Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Guitars</Nav.Link>
-            <Nav.Link href="#pricing">Amps</Nav.Link>
-            <Nav.Link href="#Accesories">Accesories</Nav.Link>
-            <Nav.Link href="#Basses">Basses</Nav.Link>
-            
-          </Nav>
+
+          <nav className="header-navbar">
+                    <Link to=' ' className="header-navlink">Home</Link>
+                    <Link to='/productos/amp' className="header-navlink">Amps</Link>
+                    <Link to='/productos/guitar' className="header-navlink">Guitars</Link>
+                    <Link to='/productos/acoustic' className="header-navlink">Acoustic Guitars</Link>
+                    
+                </nav>
+        
           <Nav><Button  variant="light">
           <Cart/>  
           </Button>{' '}</Nav>
