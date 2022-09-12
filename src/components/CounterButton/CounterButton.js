@@ -22,7 +22,7 @@ const Counter = ({max, counter, setCounter, handleAdd}) => {
         <span className="mx-2">{counter}</span>
         <button onClick={handlePlus} className="btn btn-dark">+</button>
         <br/>
-        <button onClick={handleAdd} className="btn btn-success my-2">
+        <button onClick={handleAdd} className="btn btn-outline-dark my-2">
                 Agregar al carrito
             </button>
       </Card.Body>
