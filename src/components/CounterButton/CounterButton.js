@@ -16,7 +16,7 @@ const Counter = ({max, counter, setCounter, handleAdd}) => {
   }
     return (
     
-    <Card bg="light" text="dark" border= "success"  style={{ width: '18rem' }}>
+    <Card bg="light" text="dark" border= "success"  style={{ width: "auto" }}>
       <Card.Body>
         <button onClick={handleMinus} className="btn btn-outline-dark">-</button>
         <span className="mx-2">{counter}</span>

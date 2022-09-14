@@ -1,19 +1,24 @@
 import React from 'react';
 import ItemCounter from '../CounterButton/CounterButton';
 import { useState } from "react"
+import { CartContext } from '../contexts/CartProvider/CartProvider';
+import { useContext } from 'react';
+
+
 
 
 
 const ItemDetail = ({item}) =>{
 const [cantidad, setCantidad] = useState(1)
+const {cart, setCart,addToCart, isInCart } = useContext (CartContext)
+console.log(cart)
 
 const handleAdd =() =>{
-const itemToCart ={
-  id: item.id,
-  precio: item.price,
-  nombre: item.name,
-}
+const itemToCart ={id: item.id,precio: item.price,nombre: item.name,}
   console.log(itemToCart)
+
+  addToCart(itemToCart)
+  console.log (isInCart(item.id))
 }
  
 
@@ -41,11 +46,14 @@ const itemToCart ={
                   <div className="col-sm-4 bg-dark text-light">
                     <h2> {item.name}</h2>
                     <h3>Price {item.price}</h3>
-                    <ItemCounter
-                    max={item.stock}
-                    counter={cantidad}
-                    setCounter={setCantidad}
-                    handleAdd={handleAdd}/>
+                    {
+                    isInCart(item.id)
+                    ?  <button  className="btn btn-light my-2">ir al carrito</button>
+                    :  <ItemCounter max={item.stock} counter={cantidad} setCounter={setCantidad} handleAdd={handleAdd}/>}
+
+                    
+                    
+    
                     </div>
                   </div>
 

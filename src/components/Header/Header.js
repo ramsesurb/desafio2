@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
-import { Cart } from '../CartWidget/CartWidget';
+import { CartWidget } from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 
 
@@ -39,7 +39,7 @@ export const Header = () => {
                 </nav>
         
           <Nav><Button  variant="light">
-          <Cart/>  
+          <CartWidget/>  
           </Button>{' '}</Nav>
         </Container>
       </Navbar>
