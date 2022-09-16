@@ -241,6 +241,8 @@ export const stock = [
       price: 1399,
       stock: 13,
       isTopSeller: true,
+      countryOrigin: "Indonesia",
+      color: "natural"
     },
     { id: 11,
       name: "Fender Bassbreaker 30R 30W",
@@ -258,6 +260,8 @@ export const stock = [
       rever: true,
       price: 899.99,
       stock: 2,
+      countryOrigin: "Indonesia",
+      color: "natural"
     },
     {
       name: "Fender Champion 100",
@@ -277,6 +281,8 @@ export const stock = [
       price: 287.99,
       stock: 4,
       isTopSeller: false,
-      usb: false
+      usb: false,
+      countryOrigin: "Indonesia",
+      color: "natural"
     }
 ]

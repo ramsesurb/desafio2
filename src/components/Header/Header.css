@@ -4,6 +4,14 @@
     justify-content: space-around;
     align-items: center;}
 
+    .mainTittle{
+        text-decoration: none;
+        font-weight: 800;
+        color: whitesmoke;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size:x-large
+    }
+
     .header-navlink {
         font-size: 18px;
         font-weight: 700;

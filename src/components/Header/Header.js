@@ -26,7 +26,8 @@ export const Header = () => {
               height="30"
               className="d-inline-block align-top"
             />{' '}
-            Ram Music Store
+            <Link to=' ' className="mainTittle">Ram Music Store</Link>
+           
 
           </Navbar.Brand>
 
