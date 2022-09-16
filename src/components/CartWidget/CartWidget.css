@@ -1,0 +1,14 @@
+.Widget{
+
+    visibility: hidden;
+}
+.Widget-visible{
+
+    visibility: visible;
+}
+.WidgetNumber{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+    font-weight: 600;
+}

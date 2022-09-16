@@ -39,9 +39,7 @@ export const Header = () => {
                     
                 </nav>
         
-          <Nav><Button  variant="light">
-          <CartWidget/>  
-          </Button>{' '}</Nav>
+          <CartWidget/>
         </Container>
       </Navbar>
       

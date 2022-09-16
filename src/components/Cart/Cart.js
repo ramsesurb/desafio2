@@ -25,6 +25,7 @@ console.log(cart)
         <p>Rating : {item.rating}</p>
         <p>Country origin : {item.countryOrigin}</p>
         <p>Color: {item.color}</p>
+        <p>Quantity: {item.cantidad}</p>
         </div>
         <div className='col-3 ' >
          <h5>Price</h5>

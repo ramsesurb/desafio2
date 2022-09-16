@@ -12,7 +12,7 @@ console.log(cart)
 
 
 const handleAdd =() =>{
-const itemToCart ={id: item.id,countryOrigin: item.countryOrigin, rating: item.rating, price: item.price, name: item.name, images: item.images,isTopSeller:item.isTopSeller,color: item.color, }
+const itemToCart ={cantidad, id: item.id,countryOrigin: item.countryOrigin, rating: item.rating, price: item.price, name: item.name, images: item.images,isTopSeller:item.isTopSeller,color: item.color, }
   
 
   addToCart(itemToCart)
