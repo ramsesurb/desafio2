@@ -13,11 +13,13 @@ const { categoryId } = useParams()
 useEffect(() => {
     
     const prodRef = collection(db, 'Stock')
+    const q = categoryId 
+    ? query(prodRef, where('category', '==', categoryId) )
+    : prodRef
   
-  
-    getDocs(prodRef)
+    getDocs(q)
             .then((resp) => {
-                const stockDB = resp.docs.map( (doc) => (doc.data({id: doc.id , ...doc.data()})) )
+                const stockDB = resp.docs.map( (doc) => ({id: doc.id , ...doc.data()}))
                 console.log(stockDB)
 
                 setProductos(stockDB)
