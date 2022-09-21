@@ -1,10 +1,21 @@
 import React from 'react'
 import {useCartContext } from '../contexts/CartProvider/CartProvider'
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 
 const Cart = () => {
 
 const {cart,removeItem,emptyCart,cartTotal} = useCartContext()
+
+if (cart.length === 0) {
+  return (
+      <div className="container text-center">
+          <h3>Shopping cart empty</h3>
+          <hr/>
+          <Link to="/" className="btn btn-dark">Go to shop</Link>
+      </div>
+  )
+}
 
 console.log(cart)
   return (
