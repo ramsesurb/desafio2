@@ -3,6 +3,7 @@ import {useCartContext } from '../contexts/CartProvider/CartProvider'
 import { Link } from 'react-router-dom'
 
 
+
 const Cart = () => {
 
 const {cart,removeItem,emptyCart,cartTotal} = useCartContext()
@@ -17,7 +18,7 @@ if (cart.length === 0) {
   )
 }
 
-console.log(cart)
+
   return (
 
 <div className='container my-5'>
@@ -51,6 +52,7 @@ console.log(cart)
     </div>
 ))}
  <h4> Total: ${cartTotal()} </h4>
+ <Link to="/Checkout" className="btn btn-dark">Finish Shopping</Link>
 </div>
 )}
 

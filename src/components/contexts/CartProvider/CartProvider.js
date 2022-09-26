@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState,useContext } from "react";
+import Swal from 'sweetalert2'
 
 
  export const CartContext = createContext ()
@@ -15,6 +16,16 @@ import { createContext, useEffect, useState,useContext } from "react";
     const cartQuantity = () => {return cart.reduce((acc, item) => acc + item.cantidad, 0)}
     const emptyCart =() => {return setCart([])}
     const cartTotal =()=> {return cart.reduce ((acc,item) => acc+ item.cantidad * item.price, 0)}
+    const finishShopping=(id) =>{
+      Swal.fire({
+        title: 'Thanks',
+        text: `Your orders number is: ${id}`,
+        icon: 'dark',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Great!'
+      })
+      setCart([])
+    }
     useEffect(() => {localStorage.setItem('carrito', JSON.stringify(cart))}, [cart])
 
     return (
@@ -25,7 +36,8 @@ import { createContext, useEffect, useState,useContext } from "react";
             removeItem,
             cartQuantity,
             emptyCart,
-            cartTotal
+            cartTotal,
+            finishShopping
           }}>
             {children}
         </CartContext.Provider>
