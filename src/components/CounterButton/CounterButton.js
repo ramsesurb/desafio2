@@ -1,4 +1,3 @@
-
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
@@ -17,13 +16,13 @@ const Counter = ({max, counter, setCounter, handleAdd}) => {
   }
     return (
     
-    <Card bg="light" text="dark" border= "success"  style={{ width: "auto" }}>
+    <Card bg="light" text="dark"  border='white' style={{ width: "auto" }}>
       <Card.Body>
         <button onClick={handleMinus} className="btn btn-outline-dark">-</button>
         <span className="mx-2">{counter}</span>
         <button onClick={handlePlus} className="btn btn-dark">+</button>
-        <br/>
-        <Link to="/cart" onClick={handleAdd} className="btn btn-outline-dark my-2">Add to cart</Link>
+        
+        <Link to="/cart" onClick={handleAdd} className="btn btn-outline-dark m-2">Add to cart</Link>
       </Card.Body>
     </Card>
     

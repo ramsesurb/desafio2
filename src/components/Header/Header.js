@@ -30,10 +30,9 @@ export const Header = () => {
           </Navbar.Brand>
 
           <nav className="header-navbar">
-                    <Link to=' ' className="header-navlink">Home</Link>
-                    <Link to='/productos/amp' className="header-navlink">Amps</Link>
-                    <Link to='/productos/guitar' className="header-navlink">Guitars</Link>
-                    <Link to='/productos/acoustic' className="header-navlink">Acoustic Guitars</Link>
+                    <Link to=' ' className="header-navlink text-decoration-none ">Home</Link>
+                    <Link to='/productos' className="header-navlink">Products</Link>
+                    
                     
                 </nav>
         

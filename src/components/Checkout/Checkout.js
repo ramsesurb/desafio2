@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useCartContext } from '../contexts/CartProvider/CartProvider'
-import {addDoc, collection} from "firebase/firestore"
+import {addDoc, collection, getDocs, writeBatch, query, where, documentId} from "firebase/firestore"
 import { db } from '../../Firebase/Firestore'
 import { Navigate } from "react-router-dom"
 
@@ -29,15 +29,52 @@ export const Checkout = () => {
             total:cartTotal(),
 
         }
+        if (values.name.length < 2) {
+            alert("Nombre incorrecto")
+            return
+        }
+
+        if (values.email.length < 2) { 
+            alert("Email incorrecto")
+            return 
+        }
         
 
-        const ordenesRef = collection(db,'Ordenes')
+        const batch = writeBatch(db)
+        const ordenesRef = collection(db, 'Ordenes')
+        const stockRef = collection(db, 'Stock')
+        const q = query(stockRef, where(documentId(), 'in', cart.map(item => item.id)))
+        const productos = await getDocs(q)
 
-        addDoc(ordenesRef,checkoutOrder)
-            .then((doc) => {console.log(doc.id) 
-            finishShopping(doc.id)})
+        const outOfStock = []
             
+        productos.docs.forEach((doc) => {
+            const itemInCart = cart.find(item => item.id === doc.id)
+
+            if (doc.data().stock >= itemInCart.cantidad) {
+                batch.update(doc.ref, {
+                    stock: doc.data().stock - itemInCart.cantidad
+                })
+            } else {
+                outOfStock.push(itemInCart)
+            }
+        })
+
+        if (outOfStock.length === 0) {
+            batch.commit()
+                .then(() => {
+                    addDoc(ordenesRef,checkoutOrder)
+                    .then((doc) => { 
+                    finishShopping(doc.id)}) 
+                    
+                })
+        } else {
             
+            alert("out of stock")
+            
+        }
+
+              
     }
     if (cart.length === 0) {
         return <Navigate to="/"/>

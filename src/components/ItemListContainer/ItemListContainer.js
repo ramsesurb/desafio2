@@ -3,6 +3,7 @@ import Itemlist from "../itemList/ItemList";
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../Firebase/Firestore";
+import NavList from "./NavList";
 
 const ItemListContainer = ()=> {
     
@@ -20,7 +21,7 @@ useEffect(() => {
     getDocs(q)
             .then((resp) => {
                 const stockDB = resp.docs.map( (doc) => ({id: doc.id , ...doc.data()}))
-                console.log(stockDB)
+             
 
                 setProductos(stockDB)
             })
@@ -30,10 +31,19 @@ useEffect(() => {
 }, [categoryId])
     
         return (
-        <div className="container my-5 ">
-            
-          <Itemlist productos={productos} />
-        </div>
+       
+          
+          <div className=" container-fluid   my-5 grid row">
+                    <div className="col-2 my-3 ">
+                        <NavList/>
+                    </div>
+                    <div className="col-10">
+                    <Itemlist productos={productos} />
+                    </div>
+
+                   
+                </div>
+        
     )
     
     }

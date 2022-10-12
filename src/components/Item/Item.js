@@ -1,35 +1,36 @@
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from 'react-router-dom';
+import "../Item/item.css"
 
 const Item = ( {prod} ) => {
 
     return (
         <div  >
-                  <div >
-                    <div >
-                      <div className='p-3' >
-                        <Card bg="dark" text="light" border= "success"  style={{ width: '20rem' }}>
-                        <Card.Img variant="top" src={prod.images} style={{ height: '20rem' }} />
-                        <Card.Body>
-                            <Card.Title>{prod.name}</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">{prod.brand}</Card.Subtitle>
-                            <Card.Text className=" overflow-wrap ">
-                            
-                            </Card.Text>
-                            <ListGroup className="list-group-flush">
-                            <ListGroup.Item>price: ${prod.price}</ListGroup.Item>
-                            <ListGroup.Item>rating {prod.rating} points</ListGroup.Item>
-                            </ListGroup>
-                            <div className='py-2'>
-                            <Link to={`/item/${prod.id}`} className="btn btn-outline-light my-2">Ver más</Link>
-                            </div>
-                        </Card.Body>
+                  <div  className="row">
+                    <div className='col-2'>
+                      <div className=' text-center p-3' >
+                        <Card  bg="" text="" border= ""  style={{ width: '18rem' }}>
+                        <div className="image" ><img className='item-image' variant="top" src={prod.images}  alt="" /></div>
+                      
+                      <div className= "title my-3 "><h4 >{prod.name}</h4></div>
+                      <h4 className=" text-muted price">{prod.brand}</h4>
+                      <h5>${prod.price}</h5>
+                      <div className='button py-1 '>
+                      {
+                prod.stock > 0
+                ? <Link to={`/item/${prod.id}`} className="btn btn-outline-dark " >See more</Link>
+                : <p className='btn btn-outline-danger'>Out of stock</p>
+            }
+          
+                    </div>
+                        
                         </Card>
+    
                       </div>
                     </div>
                   </div>
                 </div>
+                
     )
 }
 

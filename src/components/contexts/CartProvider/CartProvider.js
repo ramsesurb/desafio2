@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
  const init = JSON.parse(localStorage.getItem('carrito')) || []
  
  export const CartProvider = ({children}) =>{
-
+    
     const [cart,setCart] =useState (init)
     const addToCart =(item) =>{setCart ([...cart,item])}
     const isInCart =(id) =>{ return cart.some ((item)=> item.id ===id)}
@@ -37,7 +37,8 @@ import Swal from 'sweetalert2'
             cartQuantity,
             emptyCart,
             cartTotal,
-            finishShopping
+            finishShopping,
+            
           }}>
             {children}
         </CartContext.Provider>
